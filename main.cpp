@@ -2,6 +2,7 @@
 #include <string>
 #include "Person.hpp"
 #include "BankAccount.hpp"
+#include "List.hpp"
 
 int main()
 {
@@ -14,5 +15,16 @@ int main()
     one.Show();
     two.Show();
     two.FormalShow();
+    List L0;
+    List L1(3);
+    std::cout << " Is empty " << L0.isEmpty() << std::endl;
+    std::cout << " Is full " << L1.isFull() << std::endl;
+    L1.insert(0);
+    L1.insert(0);
+    L1.insert(0);
+    L1.insert(0);
+    std::cout << " Is full " << L1.isFull() << std::endl;
+    L1.visit(0, 1);
+    L1.display();
     return 0;
 }
