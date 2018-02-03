@@ -4,6 +4,7 @@
 #include "BankAccount.hpp"
 #include "List.hpp"
 
+void addage(int &item);
 int main()
 {
     BankAccount myBankAccount = BankAccount("Monil Jhaveri", "555555", 10);
@@ -24,7 +25,11 @@ int main()
     L1.insert(0);
     L1.insert(0);
     std::cout << " Is full " << L1.isFull() << std::endl;
-    L1.visit(0, 1);
+    L1.visit(addage);
     L1.display();
     return 0;
+}
+void addage(int &item)
+{
+    item += 1;
 }

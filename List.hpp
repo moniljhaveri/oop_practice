@@ -4,21 +4,21 @@
 
 class List
 {
-  public:
-    List();
-    List(int capacity);
-    ~List();
-    bool isEmpty();
-    bool isFull();
-    void insert(int data);
-    void visit(unsigned int position, int data);
-    void display();
+public:
+  List();
+  List(int capacity);
+  ~List();
+  bool isEmpty();
+  bool isFull();
+  void insert(int data);
+  void visit(void (*pf)(int &));
+  void display();
 
-  private:
-    int size;
-    int capacity;
-    int iterator = 0;
-    std::vector<int> data;
+private:
+  int size;
+  int capacity;
+  int iterator = 0;
+  std::vector<int> data;
 };
 
 #endif

@@ -39,13 +39,14 @@ void List::insert(int data)
     }
 }
 
-void List::visit(unsigned int position, int data)
+void List::visit(void (*pf)(int &))
 {
-    if (position < size)
+    for (int i = 0; i < size; i++)
     {
-        this->data[position] = data;
+        (*pf)(this->data[i]);
     }
 }
+
 void List::display()
 {
     for (auto n : this->data)
