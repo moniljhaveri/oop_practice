@@ -3,8 +3,8 @@
 class Cd
 { // represents a CD disk
 private:
-  char performers[50];
-  char label[20];
+  char *performers;
+  char *label;
   int selections;
   // number of selections
   double playtime; // playing time in minutes
@@ -20,7 +20,7 @@ public:
 class Classic : public Cd
 {
 private:
-  char primaryWork[100];
+  char *primaryWork;
 
 public:
   Classic();
