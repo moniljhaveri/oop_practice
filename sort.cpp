@@ -136,17 +136,6 @@ int QuickSort<T>::partition(std::vector<T> *arr, int pivot, int r)
     return i;
 }
 
-int main()
-{
-    std::vector<int> test;
-    test.push_back(2);
-    test.push_back(1);
-    test.push_back(0);
-    MergeSort<int> m(test);
-    std::cout << "MergeSort \n"
-              << m;
-    QuickSort<int> q(test);
-    std::cout << "QuickSort \n"
-              << q;
-    return 0;
-}
+template class Sort<int>;
+template class MergeSort<int>;
+template class QuickSort<int>;
