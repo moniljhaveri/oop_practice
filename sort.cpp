@@ -23,6 +23,7 @@ Sort<T>::~Sort()
 template <class T>
 std::ostream &operator<<(std::ostream &os, const Sort<T> &sort)
 {
+    int n = (*sort.arr).size();
     for (auto i : (*sort.arr))
     {
         os << i << std::endl;
@@ -89,13 +90,63 @@ void MergeSort<T>::Merge(std::vector<T> *arr, int p, int q, int r)
     }
 }
 
+template <class T>
+QuickSort<T>::QuickSort()
+{
+}
+
+template <class T>
+QuickSort<T>::QuickSort(const std::vector<T> arr) : Sort<T>(arr)
+{
+    int n = (*(this->arr)).size();
+    this->Quicksort(this->arr, 0, n);
+}
+template <class T>
+QuickSort<T>::~QuickSort() {}
+
+template <class T>
+void QuickSort<T>::Quicksort(std::vector<T> *arr, int pivot, int r)
+{
+    if (pivot < r)
+    {
+        int q = partition(arr, pivot, r);
+        Quicksort(arr, pivot, q);
+        Quicksort(arr, q + 1, r);
+    }
+}
+
+template <class T>
+int QuickSort<T>::partition(std::vector<T> *arr, int pivot, int r)
+{
+    int x = (*arr)[pivot];
+    int i = pivot;
+    for (int j = i + 1; j < r; j++)
+    {
+        if ((*arr)[j] < x)
+        {
+            T tmp = (*arr)[j];
+            (*arr)[j] = (*arr)[i + 1];
+            (*arr)[i + 1] = tmp;
+            i += 1;
+        }
+    }
+    T tmp = (*arr)[pivot];
+    (*arr)[pivot] = (*arr)[i];
+    (*arr)[i] = tmp;
+    return i;
+}
+
 int main()
 {
     std::vector<int> test;
     test.push_back(2);
     test.push_back(1);
     test.push_back(0);
-    MergeSort<int> d(test);
-    std::cout << d;
+    MergeSort<int> m(test);
+    std::cout << "MergeSort \n"
+              << m;
+    QuickSort<int> q(test);
+    std::cout << "QuickSort \n"
+              << q;
     return 0;
 }

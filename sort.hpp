@@ -30,4 +30,17 @@ private:
   void Mergesort(std::vector<T> *arr, int p, int r);
   void Merge(std::vector<T> *arr, int p, int q, int r);
 };
+
+template <class T>
+class QuickSort : public Sort<T>
+{
+public:
+  QuickSort(const std::vector<T> arr);
+  QuickSort();
+  ~QuickSort();
+
+private:
+  void Quicksort(std::vector<T> *arr, int pivot, int r);
+  int partition(std::vector<T> *arr, int pivot, int r);
+};
 #endif
