@@ -36,6 +36,8 @@ void Stack<T>::push(T data)
 template <class T>
 void Stack<T>::pop()
 {
+    if (ind < 0)
+        return;
     ind--;
     if (ind < (size / 4))
     {
